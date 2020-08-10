@@ -1,7 +1,7 @@
 import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import MyButton from "../button/button";
-import MapView from "../mapView/mapView";
+import MyButton from "../MyButton/myButton";
+import MyMap from "../MyMap/myMap";
 
 const useStyles = makeStyles({
     button: {
@@ -14,11 +14,11 @@ const useStyles = makeStyles({
 export default function Home() {
     const classes = useStyles();
     return (
-        <div className="App">
+        <div className="home">
         <span className={classes.button}>
             <MyButton size={'small'} text={'Add place'}/>
         </span>
-            <MapView/>
+            <MyMap/>
         </div>
     );
 }
