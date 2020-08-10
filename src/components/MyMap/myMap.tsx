@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl'
 import PoolIcon from '@material-ui/icons/Pool';
-import Icon from '@material-ui/core/Icon';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles({
