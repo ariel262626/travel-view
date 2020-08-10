@@ -1,25 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'fontsource-roboto';
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import MyButton from "./components/button/button";
-import MapView from "./components/map/mapView";
+import Home from "./components/Home/home";
 
-const useStyles = makeStyles({
-    button: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'left',
-    },
-});
-
-export default function App() {
-    const classes = useStyles();
+export default function App(): JSX.Element {
     return (
         <div className="App">
-        <span className={classes.button}>
-            <MyButton size={'small'} text={'Add place'}/>
-        </span>
-            <MapView/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Home/>}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }
