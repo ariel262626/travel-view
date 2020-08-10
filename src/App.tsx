@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'fontsource-roboto';
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import MyButton from "./components/button/button";
+import MapView from "./components/map/mapView";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const useStyles = makeStyles({
+    button: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'left',
+    },
+});
+
+export default function App() {
+    const classes = useStyles();
+    return (
+        <div className="App">
+        <span className={classes.button}>
+            <MyButton size={'small'} text={'Add place'}/>
+        </span>
+            <MapView/>
+        </div>
+    );
 }
-
-export default App;
