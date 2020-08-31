@@ -2,13 +2,19 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import MyButton from "../MyButton/myButton";
 import MyMap from "../MyMap/myMap";
-
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
-
-import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo';
 import TravelPoints from "../TravelPoints/home";
+import { gql, useQuery } from '@apollo/client';
+
+
+const GET_TRAVEL = gql`
+	query {
+		travelPoints {
+			name,
+			id
+		}
+	}
+`;
+
 
 const useStyles = makeStyles({
     button: {
@@ -18,16 +24,16 @@ const useStyles = makeStyles({
     },
 });
 
-// Pass your GraphQL endpoint to uri
-const client = new ApolloClient({ uri: 'http://localhost:4000/graphql' });
-
 export default function Home() {
     const classes = useStyles();
+
+    const { data, loading, error }: any = useQuery(GET_TRAVEL)
+
+    if (loading || error) return <p>Loading...</p>
+
     return (
         <div className="home">
-            <ApolloProvider client={client}>
-              <TravelPoints/>
-            </ApolloProvider>
+            <TravelPoints data={data}/>
         <span className={classes.button}>
             <MyButton size={'small'} text={'Add place'}/>
         </span>
