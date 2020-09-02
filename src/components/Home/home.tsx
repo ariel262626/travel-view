@@ -17,6 +17,17 @@ const GET_TRAVEL = gql`
 	}
 `;
 
+const ADD_POINT = gql`
+	mutation createTravelPoint {
+		createTravelPoint(name: $name, lat: $lat , lng: $lng) {
+			name,
+			id,
+			lat,
+			lng,
+		}
+	}
+`;
+
 
 const useStyles = makeStyles({
     button: {
