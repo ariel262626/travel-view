@@ -10,7 +10,9 @@ const GET_TRAVEL = gql`
 	query {
 		travelPoints {
 			name,
-			id
+			id,
+            lat,
+            lng,
 		}
 	}
 `;
@@ -37,7 +39,7 @@ export default function Home() {
         <span className={classes.button}>
             <MyButton size={'small'} text={'Add place'}/>
         </span>
-            <MyMap/>
+            <MyMap lat={data.travelPoints[0].lat} lng={data.travelPoints[0].lng}/>
         </div>
     );
 }
