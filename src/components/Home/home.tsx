@@ -28,7 +28,6 @@ const ADD_POINT = gql`
 	}
 `;
 
-
 const useStyles = makeStyles({
     button: {
         display: 'flex',
